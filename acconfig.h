@@ -148,11 +148,11 @@
 /* Default TCP timeout when receiving queries */
 #define TCP_TIMEOUT 30
 
-/* Allow subsequent TCP queries on one connection? */
-#undef TCP_SUBSEQ
-
 /* Default value for parallel query number */
 #define PAR_QUERIES   2
+
+/* Maximum number of queries in a tcp connection */
+#define TCP_MAX_QUERY 3
 
 /* Maximum number of IP addresses used per nameserver obtained from NS records. */
 #define MAXNAMESERVIPS 3

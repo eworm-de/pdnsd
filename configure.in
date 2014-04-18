@@ -241,10 +241,9 @@ AC_ARG_WITH(tcp-qtimeout,
 [  --with-tcp-qtimeout=secs    Specify default tcp query timeout (default=30)],
   AC_DEFINE_UNQUOTED(TCP_TIMEOUT, $withval))
 
-AC_ARG_ENABLE(tcp-subseq,
-[  --enable-tcp-subseq         Enable multiple dns querys using one
-                              tcp connection],
-  test $enableval = "yes" && AC_DEFINE(TCP_SUBSEQ))
+AC_ARG_WITH(tcp-max-query,
+[  --with-tcp-max-query=num    Allow a maximum of queries in tcp connection (default=3)],
+  AC_DEFINE_UNQUOTED(TCP_MAX_QUERY, $withval))
 
 AC_ARG_WITH(par-queries,
 [  --with-par-queries=num      Specify default parallel query number (default=2)],

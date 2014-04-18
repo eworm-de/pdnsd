@@ -1844,13 +1844,16 @@ static void *tcp_answer_thread(void *csock)
 		}
 	}
 #endif
-#ifdef TCP_SUBSEQ
 
 	/* rfc1035 says we should process multiple queries in succession, so we are looping until
 	 * the socket is closed by the other side or by tcp timeout.
 	 * This in fact makes DoSing easier. If that is your concern, you should disable pdnsd's
 	 * TCP server.*/
+#if !TCP_MAX_QUERY
 	for(;;)
+#else
+	int i;
+	for (i = 0; i < TCP_MAX_QUERY; ++i)
 #endif
 	{
 		int rlen,olen;

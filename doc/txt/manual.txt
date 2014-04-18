@@ -294,19 +294,8 @@ device                      16-bit-wise. /dev/urandom is present under Linux
 --enable-rcsids             For personal use, there is no need to do this. If
                             you build rpm's, it might have advantages.
 
-                            Enable subsequent tcp queries. The DNS protocol
-                            standard requires that servers must be capable of
-                            answering multiple subsequent queries that are sent
-                            over the same tcp connection, and that the server
-                            may only close the connection by himself after a
-                            certain timeout. This feature is rarely used, but
---enable-tcp-subseq         may make denial-of-service attacks easier, as it
-                            allows for an attacker to hold a connection open a
-                            long time (although the attacker's IP is most
-                            likely revealed then). For full standard
-                            compliance, you should use this option. If you do
-                            not use --enable-tcp-server, is option is not
-                            honored.
+--with-tcp-max-query=num    Define the number of subsequent queries allowed
+			    in a tcp connections.
 
                             Specify default tcp query timeout after which the
                             connection is closed if no full query has been
